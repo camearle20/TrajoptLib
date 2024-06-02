@@ -124,8 +124,8 @@ expected<void, std::string> SleipnirOpti::Solve(bool diagnostics) {
     return trajopt::GetCancellationFlag();
   });
 
-  // tolerance of 1e-4 is 0.1 mm
-  auto status = opti.Solve({.tolerance = 1e-4, .diagnostics = diagnostics});
+  // tolerance of 1e-3 is 1 mm
+  auto status = opti.Solve({.tolerance = 1e-3, .diagnostics = diagnostics});
 
   if (static_cast<int>(status.exitCondition) < 0 ||
       status.exitCondition ==
